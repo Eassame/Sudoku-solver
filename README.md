@@ -1,2 +1,2 @@
 # Sudoku-solver
-Python Sudoku Solver created to understand back-tracking
+Python Sudoku Solver created to understand backtracking
