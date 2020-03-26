@@ -13,7 +13,7 @@ sudoku = [
     ]
 
 
-    # Using the Backtracking Algorithm by regressing when solution isn't valid
+# Using the Backtracking Algorithm by regressing when solution isn't valid
 
 number_of_rows = int(math.sqrt(len(sudoku[0])))
 
@@ -70,7 +70,7 @@ def check_sudoku_validity(sudo, value, value_position):
 
     return True
    
-#function to solve and backtrack     
+#function to solve using backtracking   
 def solver(sudo):
     
     find_empty_pos = find_empty(sudo)
@@ -78,15 +78,11 @@ def solver(sudo):
     if not find_empty_pos:
         return True
     else:
-
         row = find_empty_pos[0]
-        col = row = find_empty_pos[1]
-        print(row)
-        print(col)
+        col = find_empty_pos[1]
         
     for i in range(1 , len(sudo[0]) + 1):
-        print(check_sudoku_validity(sudo, i , (row, col)))
-        if check_sudoku_validity(sudo, i , (row, col)):
+        if check_sudoku_validity(sudo, i , find_empty_pos):
             sudo[row][col] = i
             
             if solver(sudo):
@@ -96,4 +92,11 @@ def solver(sudo):
                 
     return False
 
+
+print_sudoku(sudoku);
+print(" ")
+print("+++++++++++++++++++++++++++++++++++")
 solver(sudoku)
+print("+++++++++++++++++++++++++++++++++++")
+print(" ")
+print_sudoku(sudoku);
